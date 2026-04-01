@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <title>Spotify - Web Player: Music for everyone</title>
+</head>
+<body>
+    <nav class="navbar">
+    <!-- Left Section -->
+    <div class="navbar-left">
+      <div class="logo">
+        <img src="Svg/logo.svg" alt="Spotify" />
+      </div>
+      <div class="home">
+        <img src="Svg/home.svg" alt="Home" />
+      </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <img src="Svg/search.svg" alt="Search" />
+      <input type="text" placeholder="What do you want to play?" />
+      <div class="separator" style="height: 20px;"></div>
+      <img src="Svg/bucket.svg" alt="Icon" />
+    </div>
+
+    <!-- Right Section -->
+    <div class="navbar-right">
+      <div class="navbar-links">
+        <span>Premium</span>
+        <span>Support</span>
+        <span>Download</span>
+      </div>
+      <div class="separator"></div>
+      <div class="icon-text">
+        <img src="Svg/download.svg" alt="Install" />
+        <span>Install App</span>
+      </div>
+      <span class="signup">Sign up</span>
+      <span class="login  exclude">Log in</span>
+    </div>
+  </nav>
+
+
+
+
+
+
+<div class="main">
+
+  <div class="left">
+    <h3 class = "heading">Your Library</h3>
+    
+    <div class="minibox">
+      <h3>Create your first playlist</h3>
+      <p>It's easy we'll help you</p>
+      <div class="button"><button>Create Playlist</button></div>
+    </div>
+
+     <div class="line"></div>
+     <div class="links">
+      <div class="all_links">
+        <span class = "span">Legal</span>
+        <span class = "span">Safety & Privacy Center</span>
+        <span class = "span">Privacy Policy</span>
+        <span class = "span">Cookies</span>
+        <span class = "span">About Ads</span>
+        <span class = "span">Accessibility</span>
+      </div>
+      <div class="cookies">
+        <span>Cookies</span>
+      </div>
+     </div>
+    <div class="language">
+      <button><img src="Svg/language.svg" alt="">English</button>
+    </div>
+  </div>
+
+
+  <div class="right">
+    <h2 class="trend">Trending songs</h2>
+<div class="card-container">
+  <div class="card" data-song-index="0">
+    <img src="Songs/Pal Pal/img.jpg" alt="">
+    <h4>Pal Pal</h4>
+    <p>Afusic,AliSoomroMusic</p>
+  </div>
+
+  <div class="card" data-song-index="2">
+    <img src="Songs/Criminal/img.jpg" alt="">
+    <h4>Criminal</h4>
+    <p>Britney Spears</p>
+  </div>
+  
+  <div class="card" data-song-index="1">
+    <img src="Songs/On My Own/img.jpg" alt="">
+    <h4>On My Own</h4>
+    <p>Darci</p>
+  </div>
+
+  <div class="card" data-song-index="3">
+    <img src="Songs/Wishes/img.jpg" alt="">
+    <h4>Wishes</h4>
+    <p>Hassan Raheem,Talwiinder</p>
+  </div>
+
+  <div class="card" data-song-index="4">
+    <img src="Songs/Way Down We Go/img.jpg" alt="">
+    <h4>Way Down We Go</h4>
+    <p>KALEO</p>
+  </div>
+
+  <div class="card" data-song-index="5">
+    <img src="Songs/Gallan 4/img.jpg" alt="">
+    <h4>Gallan 4</h4>
+    <p>Talwiinder</p>
+  </div>
+  
+  
+  
+ 
+  
+  
+</div>
+  </div>
+
+<div class="player">
+ <img id="cover" src="Songs/Pal Pal/img.jpg" alt="Song Cover">
+  <div class="song-info">
+    <h4 id="current-song-title">Pal Pal</h4>
+    <p id="current-song-artist">Afusic,AliSoomroMusic</p>
+  </div>
+  <audio id="audio-player"></audio>
+  
+  <div class="player-controls">
+    <button id="prev-btn">⏮</button>
+    <button id="play-btn">▶</button>
+    <button id="next-btn">⏭</button>
+  </div>
+
+  <div class="progress-container">
+    <span id="current-time">0:00</span>
+    <input type="range" id="progress-bar" value="0" step="1">
+    <span id="duration">0:00</span>
+  </div>
+
+  <div class="volume-container">
+    <span>🔊</span>
+    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<div class="footer">
+  <div class="footer-banner">
+  <div class="footer-text">
+    <h4>Preview of Spotify</h4>
+    <p>Sign up to get unlimited songs and podcasts with occasional ads. No credit card needed.</p>
+  </div>
+  <button class="footer-button">Sign up free</button>
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
