@@ -12,5 +12,3 @@ A minimalist music player interface inspired by Spotify.
 * **CSS3** - Custom styling and layout.
 * **JavaScript** - Audio logic and UI interactivity.
 
-## 📸 Preview
-(You can drag and drop a screenshot of your code output here!)
