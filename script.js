@@ -468,8 +468,10 @@ class SpotifyApp {
     const isLiked = this.likedSongIds.includes(song.id);
     if (isLiked) {
       this.playerHeartBtn.classList.add('liked');
+      document.getElementById('fs-top-heart-btn')?.classList.add('liked');
     } else {
       this.playerHeartBtn.classList.remove('liked');
+      document.getElementById('fs-top-heart-btn')?.classList.remove('liked');
     }
 
     // Update active highlight classes on cards & table
@@ -522,6 +524,11 @@ class SpotifyApp {
       const mPauseIcon = document.querySelector('.mobile-pause-icon');
       if (mPlayIcon) mPlayIcon.style.display = 'none';
       if (mPauseIcon) mPauseIcon.style.display = 'block';
+      // Sync fullscreen icons
+      const fsPlayIcon = document.getElementById('fs-play-icon');
+      const fsPauseIcon = document.getElementById('fs-pause-icon');
+      if (fsPlayIcon) fsPlayIcon.style.display = 'none';
+      if (fsPauseIcon) fsPauseIcon.style.display = 'block';
     }).catch(err => {
       console.warn('Playback error (auto-play policy):', err);
     });
@@ -537,6 +544,11 @@ class SpotifyApp {
     const mPauseIcon = document.querySelector('.mobile-pause-icon');
     if (mPlayIcon) mPlayIcon.style.display = 'block';
     if (mPauseIcon) mPauseIcon.style.display = 'none';
+    // Sync fullscreen icons
+    const fsPlayIcon = document.getElementById('fs-play-icon');
+    const fsPauseIcon = document.getElementById('fs-pause-icon');
+    if (fsPlayIcon) fsPlayIcon.style.display = 'block';
+    if (fsPauseIcon) fsPauseIcon.style.display = 'none';
   }
 
   togglePlay() {
@@ -573,17 +585,22 @@ class SpotifyApp {
   toggleShuffle() {
     this.isShuffle = !this.isShuffle;
     this.shuffleBtn.classList.toggle('active', this.isShuffle);
+    document.getElementById('fs-shuffle-btn')?.classList.toggle('active', this.isShuffle);
   }
 
   toggleRepeat() {
     this.repeatMode = (this.repeatMode + 1) % 3;
+    const fsRepeat = document.getElementById('fs-repeat-btn');
     if (this.repeatMode === 0) {
       this.repeatBtn.classList.remove('active', 'repeat-one');
+      if (fsRepeat) fsRepeat.classList.remove('active');
     } else if (this.repeatMode === 1) {
       this.repeatBtn.classList.add('active');
       this.repeatBtn.classList.remove('repeat-one');
+      if (fsRepeat) fsRepeat.classList.add('active');
     } else if (this.repeatMode === 2) {
       this.repeatBtn.classList.add('active', 'repeat-one');
+      if (fsRepeat) fsRepeat.classList.add('active');
     }
   }
 
@@ -599,7 +616,9 @@ class SpotifyApp {
 
     // If current song
     if (this.songs[this.currentIndex].id === songId) {
-      this.playerHeartBtn.classList.toggle('liked', idx < 0);
+      const isLiked = idx < 0;
+      this.playerHeartBtn.classList.toggle('liked', isLiked);
+      document.getElementById('fs-top-heart-btn')?.classList.toggle('liked', isLiked);
     }
 
     this.renderTracksTable();
@@ -1030,18 +1049,98 @@ class SpotifyApp {
     this.shuffleBtn.addEventListener('click', () => this.toggleShuffle());
     this.repeatBtn.addEventListener('click', () => this.toggleRepeat());
 
-    // Mobile playback controls
-    document.getElementById('mobile-play-btn')?.addEventListener('click', () => this.togglePlay());
-    document.getElementById('mobile-prev-btn')?.addEventListener('click', () => this.prevSong());
-    document.getElementById('mobile-next-btn')?.addEventListener('click', () => this.nextSong());
+    // Mobile playback controls (mini-player)
+    document.getElementById('mobile-play-btn')?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      this.togglePlay();
+    });
+    document.getElementById('mobile-prev-btn')?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      this.prevSong();
+    });
+    document.getElementById('mobile-next-btn')?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      this.nextSong();
+    });
 
-    // Like current song
-    this.playerHeartBtn.addEventListener('click', () => {
+    // Mobile mini-player tap to open fullscreen Now Playing
+    const playerLeft = document.querySelector('.player-bar .player-left');
+    if (playerLeft) {
+      playerLeft.addEventListener('click', (e) => {
+        if (e.target.closest('#player-heart-btn')) return;
+        if (window.innerWidth <= 768) {
+          const fsOverlay = document.getElementById('fullscreen-overlay');
+          if (fsOverlay) fsOverlay.style.display = 'flex';
+        }
+      });
+    }
+
+    // Fullscreen controls
+    document.getElementById('fs-play-btn')?.addEventListener('click', () => this.togglePlay());
+    document.getElementById('fs-prev-btn')?.addEventListener('click', () => this.prevSong());
+    document.getElementById('fs-next-btn')?.addEventListener('click', () => this.nextSong());
+    document.getElementById('fs-shuffle-btn')?.addEventListener('click', () => this.toggleShuffle());
+    document.getElementById('fs-repeat-btn')?.addEventListener('click', () => this.toggleRepeat());
+    document.getElementById('fs-top-heart-btn')?.addEventListener('click', () => {
+      const curr = this.songs[this.currentIndex];
+      if (curr) this.toggleLike(curr.id);
+    });
+    document.getElementById('fs-lyrics-btn')?.addEventListener('click', () => {
+      const fsOverlay = document.getElementById('fullscreen-overlay');
+      if (fsOverlay) fsOverlay.style.display = 'none';
+      this.toggleDrawer('lyrics');
+    });
+
+    // Mobile Bottom Navigation
+    const bnavHome = document.getElementById('bnav-home');
+    const bnavSearch = document.getElementById('bnav-search');
+    const bnavLibrary = document.getElementById('bnav-library');
+    const bnavLyrics = document.getElementById('bnav-lyrics');
+
+    bnavHome?.addEventListener('click', () => {
+      this.setBottomNavActive('bnav-home');
+      this.closeDrawer();
+      this.showHomeView();
+      document.getElementById('main-content')?.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    bnavSearch?.addEventListener('click', () => {
+      this.setBottomNavActive('bnav-search');
+      this.closeDrawer();
+      const searchInput = document.getElementById('search-input');
+      if (searchInput) {
+        searchInput.focus();
+        if (!searchInput.value.trim()) {
+          this.performSearch('');
+        }
+      }
+    });
+
+    bnavLibrary?.addEventListener('click', () => {
+      this.setBottomNavActive('bnav-library');
+      this.closeDrawer();
+      this.openPlaylistView('liked');
+      document.getElementById('main-content')?.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    bnavLyrics?.addEventListener('click', () => {
+      this.setBottomNavActive('bnav-lyrics');
+      this.toggleDrawer('lyrics');
+    });
+
+    // Like current song (mini-player & desktop)
+    this.playerHeartBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       const curr = this.songs[this.currentIndex];
       if (curr) this.toggleLike(curr.id);
     });
 
     // Audio time update
+    const fsProgressBar = document.getElementById('fs-progress-bar');
+    const fsProgressFill = document.getElementById('fs-progress-fill');
+    const fsCurrentTime = document.getElementById('fs-current-time');
+    const fsDurationTime = document.getElementById('fs-duration-time');
+
     this.audio.addEventListener('timeupdate', () => {
       const cur = this.audio.currentTime;
       const dur = this.audio.duration || 1;
@@ -1051,6 +1150,11 @@ class SpotifyApp {
       this.progressFill.style.width = `${percent}%`;
       this.currentTimeEl.textContent = this.formatTime(cur);
 
+      // Sync fullscreen seekbar
+      if (fsProgressBar) fsProgressBar.value = percent;
+      if (fsProgressFill) fsProgressFill.style.width = `${percent}%`;
+      if (fsCurrentTime) fsCurrentTime.textContent = this.formatTime(cur);
+
       // Sync lyrics
       if (this.activeDrawerPanel === 'lyrics') {
         this.syncLyrics(cur);
@@ -1058,7 +1162,9 @@ class SpotifyApp {
     });
 
     this.audio.addEventListener('loadedmetadata', () => {
-      this.durationTimeEl.textContent = this.formatTime(this.audio.duration || 0);
+      const formatted = this.formatTime(this.audio.duration || 0);
+      this.durationTimeEl.textContent = formatted;
+      if (fsDurationTime) fsDurationTime.textContent = formatted;
     });
 
     this.audio.addEventListener('ended', () => {
@@ -1070,7 +1176,7 @@ class SpotifyApp {
       }
     });
 
-    // Scrub bar seek
+    // Scrub bar seek (desktop & mini-player)
     this.progressBar.addEventListener('input', () => {
       const dur = this.audio.duration || 1;
       const targetTime = (this.progressBar.value / 100) * dur;
@@ -1082,6 +1188,21 @@ class SpotifyApp {
       const dur = this.audio.duration || 1;
       this.audio.currentTime = (this.progressBar.value / 100) * dur;
     });
+
+    // Fullscreen scrub bar seek
+    if (fsProgressBar) {
+      fsProgressBar.addEventListener('input', () => {
+        const dur = this.audio.duration || 1;
+        const targetTime = (fsProgressBar.value / 100) * dur;
+        if (fsProgressFill) fsProgressFill.style.width = `${fsProgressBar.value}%`;
+        if (fsCurrentTime) fsCurrentTime.textContent = this.formatTime(targetTime);
+      });
+
+      fsProgressBar.addEventListener('change', () => {
+        const dur = this.audio.duration || 1;
+        this.audio.currentTime = (fsProgressBar.value / 100) * dur;
+      });
+    }
 
     // Volume Slider
     this.volumeSlider.addEventListener('input', () => {
@@ -1247,8 +1368,17 @@ class SpotifyApp {
     });
   }
 
+  setBottomNavActive(navId) {
+    const ids = ['bnav-home', 'bnav-search', 'bnav-library', 'bnav-lyrics'];
+    ids.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.toggle('active', id === navId);
+    });
+  }
+
   showHomeView() {
     this.currentView = 'home';
+    this.setBottomNavActive('bnav-home');
     document.getElementById('view-home').style.display = 'block';
     document.getElementById('view-search').style.display = 'none';
     document.getElementById('view-playlist').style.display = 'none';
@@ -1257,21 +1387,22 @@ class SpotifyApp {
 
   performSearch(query) {
     this.currentView = 'search';
+    this.setBottomNavActive('bnav-search');
     document.getElementById('view-home').style.display = 'none';
     document.getElementById('view-playlist').style.display = 'none';
     const searchView = document.getElementById('view-search');
     searchView.style.display = 'block';
 
-    const q = query.toLowerCase();
+    const q = (query || '').toLowerCase().trim();
     const heading = document.getElementById('search-query-heading');
-    if (heading) heading.textContent = `Search results for "${query}"`;
+    if (heading) heading.textContent = q ? `Search results for "${query}"` : 'Browse all music';
 
-    const results = this.songs.filter(s =>
+    const results = q ? this.songs.filter(s =>
       s.title.toLowerCase().includes(q) ||
       s.artist.toLowerCase().includes(q) ||
       (s.vibe && s.vibe.toLowerCase().includes(q)) ||
       (s.tags && s.tags.some(t => t.toLowerCase().includes(q)))
-    );
+    ) : this.songs;
 
     const grid = document.getElementById('search-cards-grid');
     const empty = document.getElementById('search-empty-state');
@@ -1291,6 +1422,7 @@ class SpotifyApp {
   openPlaylistView(playlistId) {
     this.currentView = 'playlist';
     this.activePlaylistId = playlistId;
+    this.setBottomNavActive('bnav-library');
 
     document.getElementById('view-home').style.display = 'none';
     document.getElementById('view-search').style.display = 'none';

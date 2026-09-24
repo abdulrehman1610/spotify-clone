@@ -256,8 +256,8 @@
             </div>
           </section>
 
-          <!-- BOTTOM SPACER FOR PLAYER BAR -->
-          <div style="height: 120px;"></div>
+          <!-- BOTTOM SPACER FOR FIXED MINI-PLAYER & BOTTOM NAV -->
+          <div class="bottom-spacer" style="height: 140px;"></div>
         </div>
       </main>
 
@@ -460,15 +460,107 @@
       </div>
     </footer>
 
+    <!-- MOBILE BOTTOM NAVIGATION BAR -->
+    <nav class="mobile-bottom-nav" id="mobile-bottom-nav">
+      <button class="bottom-nav-item active" id="bnav-home" data-view="home">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+        <span>Home</span>
+      </button>
+      <button class="bottom-nav-item" id="bnav-search" data-view="search">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+          <path d="M10 2a8 8 0 015.293 14.008l4.7 4.7a1 1 0 01-1.414 1.414l-4.7-4.7A8 8 0 1110 2zm0 2a6 6 0 100 12 6 6 0 000-12z"/>
+        </svg>
+        <span>Search</span>
+      </button>
+      <button class="bottom-nav-item" id="bnav-library" data-view="library">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+          <path d="M3 22a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1zM15.5 2.1l5 1.4a1 1 0 01.7 1.2l-3.9 14.1a1 1 0 01-1.2.7l-5-1.4a1 1 0 01-.7-1.2L14.3 2.8a1 1 0 011.2-.7zM6 4h3v16H6V4z"/>
+        </svg>
+        <span>Your Library</span>
+      </button>
+      <button class="bottom-nav-item" id="bnav-lyrics" data-view="lyrics">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+          <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+        </svg>
+        <span>Lyrics</span>
+      </button>
+    </nav>
+
     <!-- FULLSCREEN IMMERSIVE PLAYER MODAL -->
     <div class="fullscreen-overlay" id="fullscreen-overlay" style="display: none;">
-      <button class="fullscreen-close-btn" id="fullscreen-close-btn">✕</button>
+      <div class="fullscreen-top-bar">
+        <button class="fullscreen-down-btn" id="fullscreen-close-btn" title="Close">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+            <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+          </svg>
+        </button>
+        <span class="fullscreen-now-playing-label">Now Playing</span>
+        <button class="fs-top-heart-btn" id="fs-top-heart-btn" title="Save to Liked Songs">♥</button>
+      </div>
+
       <div class="fullscreen-content">
-        <canvas id="fullscreen-visualizer" width="800" height="140"></canvas>
+        <canvas id="fullscreen-visualizer" width="800" height="80"></canvas>
         <img id="fullscreen-cover-img" src="Songs/Pal Pal/img.jpg" alt="Cover" class="fullscreen-art" />
+        
         <div class="fullscreen-meta">
           <h2 id="fullscreen-title">Pal Pal</h2>
           <p id="fullscreen-artist">Afusic, AliSoomroMusic</p>
+        </div>
+
+        <!-- Fullscreen Seek Bar -->
+        <div class="fs-progress-container">
+          <span class="fs-time-label" id="fs-current-time">0:00</span>
+          <div class="custom-range-slider" id="fs-progress-slider-wrapper">
+            <div class="slider-track">
+              <div class="slider-fill" id="fs-progress-fill"></div>
+            </div>
+            <input type="range" id="fs-progress-bar" min="0" max="100" value="0" step="0.1" />
+          </div>
+          <span class="fs-time-label" id="fs-duration-time">0:00</span>
+        </div>
+
+        <!-- Fullscreen Main Playback Controls -->
+        <div class="fs-player-controls">
+          <button class="fs-ctrl-btn" id="fs-shuffle-btn" title="Shuffle">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+              <path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/>
+            </svg>
+          </button>
+          <button class="fs-ctrl-btn" id="fs-prev-btn" title="Previous">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
+              <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
+            </svg>
+          </button>
+          <button class="fs-play-btn" id="fs-play-btn" title="Play/Pause">
+            <svg id="fs-play-icon" viewBox="0 0 24 24" width="26" height="26" fill="#000000">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            <svg id="fs-pause-icon" viewBox="0 0 24 24" width="26" height="26" fill="#000000" style="display: none;">
+              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+            </svg>
+          </button>
+          <button class="fs-ctrl-btn" id="fs-next-btn" title="Next">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
+              <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
+            </svg>
+          </button>
+          <button class="fs-ctrl-btn" id="fs-repeat-btn" title="Repeat">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+              <path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Fullscreen Bottom Action Bar (Lyrics shortcut) -->
+        <div class="fs-extra-actions">
+          <button class="fs-action-pill" id="fs-lyrics-btn" title="Open Lyrics">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+              <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+            </svg>
+            <span>Lyrics</span>
+          </button>
         </div>
       </div>
     </div>
