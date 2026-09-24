@@ -1,0 +1,614 @@
+﻿[
+    {
+        "id":  "after-dark-x-sweater-weather",
+        "title":  "After Dark x Sweater Weather",
+        "artist":  "TommyMuzzic",
+        "album":  "After Dark x Sweater Weather Single",
+        "src":  "Songs/After Dark x Sweater Weather/TommyMuzzic - After Dark x Sweater Weather - slowed to perfection.mp3",
+        "cover":  "Svg/logo.svg",
+        "duration":  "3:30",
+        "vibe":  "Chill Vibe",
+        "tags":  [
+                     "music",
+                     "chill",
+                     "local"
+                 ],
+        "color":  "#7c2d12",
+        "lyrics":  {
+                       "time":  0,
+                       "text":  "â™ª Music Playing â™ª"
+                   }
+    },
+    {
+        "id":  "after-hours",
+        "title":  "After Hours",
+        "artist":  "The Weeknd",
+        "album":  "After Hours Single",
+        "src":  "Songs/After Hours/The Weeknd - After Hours.mp3",
+        "cover":  "Svg/logo.svg",
+        "duration":  "3:30",
+        "vibe":  "Chill Vibe",
+        "tags":  [
+                     "music",
+                     "chill",
+                     "local"
+                 ],
+        "color":  "#1e1b4b",
+        "lyrics":  {
+                       "time":  0,
+                       "text":  "â™ª Music Playing â™ª"
+                   }
+    },
+    {
+        "id":  "all-the-stars",
+        "title":  "All The Stars",
+        "artist":  "Kendrick Lamar, SZA",
+        "album":  "All The Stars Single",
+        "src":  "Songs/All The Stars/Kendrick Lamar, SZA - All The Stars (with SZA) - From \u0027Black Panther- The Album\u0027.mp3",
+        "cover":  "Svg/logo.svg",
+        "duration":  "3:30",
+        "vibe":  "Chill Vibe",
+        "tags":  [
+                     "music",
+                     "chill",
+                     "local"
+                 ],
+        "color":  "#831843",
+        "lyrics":  {
+                       "time":  0,
+                       "text":  "â™ª Music Playing â™ª"
+                   }
+    },
+    {
+        "id":  "biba-sada",
+        "title":  "BIBA SADA",
+        "artist":  "Sami Khan, Zain Zohaib, Iqra Manzoor, Nusrat Fateh Ali Khan",
+        "album":  "BIBA SADA Single",
+        "src":  "Songs/BIBA SADA/Sami Khan, Zain Zohaib, Iqra Manzoor, Nusrat Fateh Ali Khan - BIBA SADA - From \u0027Abdullahpur Ka Devdas\u0027.mp3",
+        "cover":  "Svg/logo.svg",
+        "duration":  "3:30",
+        "vibe":  "Chill Vibe",
+        "tags":  [
+                     "music",
+                     "chill",
+                     "local"
+                 ],
+        "color":  "#14532d",
+        "lyrics":  {
+                       "time":  0,
+                       "text":  "â™ª Music Playing â™ª"
+                   }
+    },
+    {
+        "id":  "criminal",
+        "title":  "Criminal",
+        "artist":  "Britney Spears",
+        "album":  "Femme Fatale",
+        "src":  "Songs/Criminal/Britney Spears - Criminal (Lyrics).mp3",
+        "cover":  "Songs/Criminal/img.jpg",
+        "duration":  "3:45",
+        "vibe":  "Pop Nostalgic Acoustic Melodic",
+        "tags":  [
+                     "pop",
+                     "nostalgia",
+                     "throwback",
+                     "energetic",
+                     "guitar"
+                 ],
+        "color":  "#831843",
+        "lyrics":  [
+                       {
+                           "time":  0,
+                           "text":  "♪ Acoustic Flute \u0026 Guitar ♪"
+                       },
+                       {
+                           "time":  16,
+                           "text":  "He is a bad boy with a tainted heart"
+                       },
+                       {
+                           "time":  22,
+                           "text":  "And even I know this ain\u0027t smart"
+                       },
+                       {
+                           "time":  28,
+                           "text":  "But mama I\u0027m in love with a criminal"
+                       },
+                       {
+                           "time":  34,
+                           "text":  "And this type of love isn\u0027t rational, it\u0027s physical"
+                       },
+                       {
+                           "time":  46,
+                           "text":  "Mama please don\u0027t cry, I will be alright"
+                       },
+                       {
+                           "time":  56,
+                           "text":  "All reason aside I just can\u0027t deny, love that guy"
+                       }
+                   ]
+    },
+    {
+        "id":  "dusk-till-dawn",
+        "title":  "Dusk Till Dawn",
+        "artist":  "Benlon, Pop Mage",
+        "album":  "Dusk Till Dawn Single",
+        "src":  "Songs/Dusk Till Dawn/Benlon, Pop Mage - Dusk Till Dawn.mp3",
+        "cover":  "Svg/logo.svg",
+        "duration":  "3:30",
+        "vibe":  "Chill Vibe",
+        "tags":  [
+                     "music",
+                     "chill",
+                     "local"
+                 ],
+        "color":  "#3b0764",
+        "lyrics":  {
+                       "time":  0,
+                       "text":  "â™ª Music Playing â™ª"
+                   }
+    },
+    {
+        "id":  "gallan-4",
+        "title":  "Gallan 4",
+        "artist":  "Talwiinder",
+        "album":  "Gallan 4 Single",
+        "src":  "Songs/Gallan 4/Talwiinder - GALLAN 4 (Lyrical Video).mp3",
+        "cover":  "Songs/Gallan 4/img.jpg",
+        "duration":  "2:34",
+        "vibe":  "Punjabi Chill Hip-Hop Melodic",
+        "tags":  [
+                     "punjabi",
+                     "chill",
+                     "hiphop",
+                     "nightdrive",
+                     "flow"
+                 ],
+        "color":  "#3b0764",
+        "lyrics":  [
+                       {
+                           "time":  0,
+                           "text":  "♪ Lo-Fi Punjabi Beats ♪"
+                       },
+                       {
+                           "time":  10,
+                           "text":  "Gallan chaar teriyan mere naal"
+                       },
+                       {
+                           "time":  22,
+                           "text":  "Soniye ni dass tera ki ae haal"
+                       },
+                       {
+                           "time":  34,
+                           "text":  "Raatan nu taare gin gin katan din"
+                       },
+                       {
+                           "time":  46,
+                           "text":  "Dil nu chain na aave tere bin"
+                       },
+                       {
+                           "time":  60,
+                           "text":  "Gallan chaar teriyan mere naal..."
+                       }
+                   ]
+    },
+    {
+        "id":  "i-was-never-there",
+        "title":  "I Was Never There",
+        "artist":  "The Weeknd, Gesaffelstein",
+        "album":  "I Was Never There Single",
+        "src":  "Songs/I Was Never There/The Weeknd, Gesaffelstein - I Was Never There.mp3",
+        "cover":  "Svg/logo.svg",
+        "duration":  "3:30",
+        "vibe":  "Chill Vibe",
+        "tags":  [
+                     "music",
+                     "chill",
+                     "local"
+                 ],
+        "color":  "#047857",
+        "lyrics":  {
+                       "time":  0,
+                       "text":  "â™ª Music Playing â™ª"
+                   }
+    },
+    {
+        "id":  "ik-lamha",
+        "title":  "Ik Lamha",
+        "artist":  "Azaan Sami Khan",
+        "album":  "Ik Lamha Single",
+        "src":  "Songs/Ik Lamha/Azaan Sami Khan - Ik Lamha.mp3",
+        "cover":  "Svg/logo.svg",
+        "duration":  "3:30",
+        "vibe":  "Chill Vibe",
+        "tags":  [
+                     "music",
+                     "chill",
+                     "local"
+                 ],
+        "color":  "#b45309",
+        "lyrics":  {
+                       "time":  0,
+                       "text":  "â™ª Music Playing â™ª"
+                   }
+    },
+    {
+        "id":  "infinity",
+        "title":  "Infinity",
+        "artist":  "Hannah Gracelynn, lost., Pop Mage",
+        "album":  "Infinity Single",
+        "src":  "Songs/Infinity/Hannah Gracelynn, lost., Pop Mage - Infinity.mp3",
+        "cover":  "Svg/logo.svg",
+        "duration":  "3:30",
+        "vibe":  "Chill Vibe",
+        "tags":  [
+                     "music",
+                     "chill",
+                     "local"
+                 ],
+        "color":  "#4338ca",
+        "lyrics":  {
+                       "time":  0,
+                       "text":  "â™ª Music Playing â™ª"
+                   }
+    },
+    {
+        "id":  "nasha",
+        "title":  "Nasha",
+        "artist":  "Talwiinder, Vision",
+        "album":  "Nasha Single",
+        "src":  "Songs/Nasha/Talwiinder, Vision - Nasha.mp3",
+        "cover":  "Svg/logo.svg",
+        "duration":  "3:30",
+        "vibe":  "Chill Vibe",
+        "tags":  [
+                     "music",
+                     "chill",
+                     "local"
+                 ],
+        "color":  "#7c2d12",
+        "lyrics":  {
+                       "time":  0,
+                       "text":  "â™ª Music Playing â™ª"
+                   }
+    },
+    {
+        "id":  "on-my-own",
+        "title":  "On My Own",
+        "artist":  "Darci",
+        "album":  "On My Own Single",
+        "src":  "Songs/On My Own/utomp3.com -  Darci  On My Own Lyrics.mp3",
+        "cover":  "Songs/On My Own/img.jpg",
+        "duration":  "2:40",
+        "vibe":  "Late Night Dark Atmospheric Trap",
+        "tags":  [
+                     "late-night",
+                     "trap",
+                     "dark",
+                     "focus",
+                     "moody"
+                 ],
+        "color":  "#1e1b4b",
+        "lyrics":  [
+                       {
+                           "time":  0,
+                           "text":  "♪ Heavy Synth Intro ♪"
+                       },
+                       {
+                           "time":  10,
+                           "text":  "Yeah, running out of time again"
+                       },
+                       {
+                           "time":  20,
+                           "text":  "Moving fast through the neon lights"
+                       },
+                       {
+                           "time":  32,
+                           "text":  "Doing all of this on my own"
+                       },
+                       {
+                           "time":  44,
+                           "text":  "Never needed nobody to hold me down"
+                       },
+                       {
+                           "time":  60,
+                           "text":  "Cruising through the city when the clock strikes two"
+                       },
+                       {
+                           "time":  75,
+                           "text":  "All I ever needed was the quiet and the groove"
+                       },
+                       {
+                           "time":  90,
+                           "text":  "Yeah, on my own, on my own..."
+                       }
+                   ]
+    },
+    {
+        "id":  "pal-pal",
+        "title":  "Pal Pal",
+        "artist":  "Afusic",
+        "album":  "Single",
+        "src":  "Songs/Pal Pal/Afusic - Pal Pal (Official Music Video) Prod. AliSoomroMusic - AFUSIC.mp3",
+        "cover":  "Songs/Pal Pal/img.jpg",
+        "duration":  "3:25",
+        "vibe":  "Romantic Chill Melodic",
+        "tags":  [
+                     "chill",
+                     "romantic",
+                     "urdu",
+                     "acoustic",
+                     "lofi"
+                 ],
+        "color":  "#7c2d12",
+        "lyrics":  [
+                       {
+                           "time":  0,
+                           "text":  "♪ Intro Music ♪"
+                       },
+                       {
+                           "time":  12,
+                           "text":  "Pal pal dil ke paas tum rehti ho"
+                       },
+                       {
+                           "time":  24,
+                           "text":  "Jeevan meethi pyaas yeh kehti ho"
+                       },
+                       {
+                           "time":  36,
+                           "text":  "Har shaam aankhon par tera aanchal lehraye"
+                       },
+                       {
+                           "time":  48,
+                           "text":  "Har raat yaadon ki baraat le aaye"
+                       },
+                       {
+                           "time":  65,
+                           "text":  "Main saans leta hoon teri khushboo aati hai"
+                       },
+                       {
+                           "time":  80,
+                           "text":  "Ek mehka mehka sa paighaam laati hai"
+                       },
+                       {
+                           "time":  95,
+                           "text":  "Pal pal dil ke paas tum rehti ho"
+                       }
+                   ]
+    },
+    {
+        "id":  "reminder",
+        "title":  "Reminder",
+        "artist":  "The Weeknd",
+        "album":  "Reminder Single",
+        "src":  "Songs/Reminder/The Weeknd - Reminder.mp3",
+        "cover":  "Svg/logo.svg",
+        "duration":  "3:30",
+        "vibe":  "Chill Vibe",
+        "tags":  [
+                     "music",
+                     "chill",
+                     "local"
+                 ],
+        "color":  "#14532d",
+        "lyrics":  {
+                       "time":  0,
+                       "text":  "â™ª Music Playing â™ª"
+                   }
+    },
+    {
+        "id":  "senorita",
+        "title":  "Senorita",
+        "artist":  "lost., Pop Mage",
+        "album":  "Senorita Single",
+        "src":  "Songs/Senorita/lost., Pop Mage - Senorita.mp3",
+        "cover":  "Svg/logo.svg",
+        "duration":  "3:30",
+        "vibe":  "Chill Vibe",
+        "tags":  [
+                     "music",
+                     "chill",
+                     "local"
+                 ],
+        "color":  "#1c1917",
+        "lyrics":  {
+                       "time":  0,
+                       "text":  "â™ª Music Playing â™ª"
+                   }
+    },
+    {
+        "id":  "stereo-love",
+        "title":  "Stereo Love",
+        "artist":  "lost., Veronica Bravo, Pop Mage",
+        "album":  "Stereo Love Single",
+        "src":  "Songs/Stereo Love/lost., Veronica Bravo, Pop Mage - Stereo Love.mp3",
+        "cover":  "Svg/logo.svg",
+        "duration":  "3:30",
+        "vibe":  "Chill Vibe",
+        "tags":  [
+                     "music",
+                     "chill",
+                     "local"
+                 ],
+        "color":  "#3b0764",
+        "lyrics":  {
+                       "time":  0,
+                       "text":  "â™ª Music Playing â™ª"
+                   }
+    },
+    {
+        "id":  "stfu",
+        "title":  "STFU",
+        "artist":  "AP Dhillon, Shinda Kahlon",
+        "album":  "STFU Single",
+        "src":  "Songs/STFU/AP Dhillon, Shinda Kahlon - STFU.mp3",
+        "cover":  "Svg/logo.svg",
+        "duration":  "3:30",
+        "vibe":  "Chill Vibe",
+        "tags":  [
+                     "music",
+                     "chill",
+                     "local"
+                 ],
+        "color":  "#0369a1",
+        "lyrics":  {
+                       "time":  0,
+                       "text":  "â™ª Music Playing â™ª"
+                   }
+    },
+    {
+        "id":  "unstoppable",
+        "title":  "Unstoppable",
+        "artist":  "Pop Mage, Sup I\u0027m Bianca, Mandrazo",
+        "album":  "Unstoppable Single",
+        "src":  "Songs/Unstoppable/Pop Mage, Sup I\u0027m Bianca, Mandrazo - Unstoppable.mp3",
+        "cover":  "Svg/logo.svg",
+        "duration":  "3:30",
+        "vibe":  "Chill Vibe",
+        "tags":  [
+                     "music",
+                     "chill",
+                     "local"
+                 ],
+        "color":  "#047857",
+        "lyrics":  {
+                       "time":  0,
+                       "text":  "â™ª Music Playing â™ª"
+                   }
+    },
+    {
+        "id":  "unstoppable-acoustic",
+        "title":  "Unstoppable (Acoustic)",
+        "artist":  "Honeyfox, lost., Pop Mage",
+        "album":  "Acoustic Single",
+        "src":  "Songs/Unstoppable - Acoustic/Honeyfox, lost., Pop Mage - Unstoppable - Acoustic.mp3",
+        "cover":  "Svg/logo.svg",
+        "duration":  "3:30",
+        "vibe":  "Chill Vibe",
+        "tags":  [
+                     "music",
+                     "chill",
+                     "local"
+                 ],
+        "color":  "#b45309",
+        "lyrics":  {
+                       "time":  0,
+                       "text":  "â™ª Music Playing â™ª"
+                   }
+    },
+    {
+        "id":  "way-down-we-go",
+        "title":  "Way Down We Go",
+        "artist":  "KALEO",
+        "album":  "A/B",
+        "src":  "Songs/Way Down We Go/KALEO - Way Down We Go (Official Music Video).mp3",
+        "cover":  "Songs/Way Down We Go/img.jpg",
+        "duration":  "3:39",
+        "vibe":  "Blues Rock Dark Cinematic Intense",
+        "tags":  [
+                     "rock",
+                     "blues",
+                     "cinematic",
+                     "epic",
+                     "focus"
+                 ],
+        "color":  "#1c1917",
+        "lyrics":  [
+                       {
+                           "time":  0,
+                           "text":  "♪ Deep Bass and Drum Rhythms ♪"
+                       },
+                       {
+                           "time":  18,
+                           "text":  "Oh, father tell me, do we get what we deserve?"
+                       },
+                       {
+                           "time":  30,
+                           "text":  "Oh, we get what we deserve"
+                       },
+                       {
+                           "time":  42,
+                           "text":  "And way down we go-o-o-o-o"
+                       },
+                       {
+                           "time":  54,
+                           "text":  "Way down we go-o-o-o-o"
+                       },
+                       {
+                           "time":  66,
+                           "text":  "Say way down we go"
+                       },
+                       {
+                           "time":  78,
+                           "text":  "\u0027Cause they will run you down by the fallen shoulders"
+                       }
+                   ]
+    },
+    {
+        "id":  "we-don-t-talk-anymore",
+        "title":  "We Don\u0027t Talk Anymore",
+        "artist":  "Benlon, Pop Mage",
+        "album":  "We Don\u0027t Talk Anymore Single",
+        "src":  "Songs/We Don\u0027t Talk Anymore/Benlon, Pop Mage - We Don\u0027t Talk Anymore.mp3",
+        "cover":  "Svg/logo.svg",
+        "duration":  "3:30",
+        "vibe":  "Chill Vibe",
+        "tags":  [
+                     "music",
+                     "chill",
+                     "local"
+                 ],
+        "color":  "#7c2d12",
+        "lyrics":  {
+                       "time":  0,
+                       "text":  "â™ª Music Playing â™ª"
+                   }
+    },
+    {
+        "id":  "wishes",
+        "title":  "Wishes",
+        "artist":  "Hasan Raheem",
+        "album":  "Wishes",
+        "src":  "Songs/Wishes/Hasan Raheem - Wishes ft Talwiinder  Prod by Umair (Official Lyric Video) - Hasan Raheem.mp3",
+        "cover":  "Songs/Wishes/img.jpg",
+        "duration":  "3:30",
+        "vibe":  "Indie Synth Pop Melancholic Vibe",
+        "tags":  [
+                     "indie",
+                     "synthpop",
+                     "chill",
+                     "vibes",
+                     "desi-indie"
+                 ],
+        "color":  "#14532d",
+        "lyrics":  [
+                       {
+                           "time":  0,
+                           "text":  "♪ Dreamy Synth Prelude ♪"
+                       },
+                       {
+                           "time":  14,
+                           "text":  "Wishes in the wind tonight"
+                       },
+                       {
+                           "time":  26,
+                           "text":  "Kyun tu door hai mere khwabon se?"
+                       },
+                       {
+                           "time":  38,
+                           "text":  "Baatein adhuri si reh gayi hain"
+                       },
+                       {
+                           "time":  52,
+                           "text":  "Raaste badal gaye par yaad teri aati hai"
+                       },
+                       {
+                           "time":  68,
+                           "text":  "Teri har ek ada, dil ko chu ke jaati hai"
+                       },
+                       {
+                           "time":  85,
+                           "text":  "Soch mein gum, subah se shaam tak"
+                       }
+                   ]
+    }
+]
