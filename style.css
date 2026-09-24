@@ -1574,3 +1574,14 @@ body {
     width: 35%;
   }
 }
+
+/* Buffering pulse animation on play button while audio loads */
+@keyframes buffering-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.92); }
+}
+
+.buffering {
+  animation: buffering-pulse 0.8s ease-in-out infinite;
+  pointer-events: none;
+}

@@ -156,6 +156,7 @@ class SpotifyApp {
 
     // Audio Elements
     this.audio = document.getElementById('audio-player');
+    this.audio.preload = 'auto'; // Eagerly buffer audio data for fast playback
     this.progressBar = document.getElementById('progress-bar');
     this.progressFill = document.getElementById('progress-fill');
     this.currentTimeEl = document.getElementById('current-time');
@@ -192,6 +193,9 @@ class SpotifyApp {
     this.visualizerCanvas = document.getElementById('drawer-visualizer');
     this.fullscreenVisualizerCanvas = document.getElementById('fullscreen-visualizer');
     this.isVisualizerInit = false;
+
+    // Next-track preloader for instant transitions
+    this.nextTrackPreloader = null;
 
     this.init();
   }
@@ -254,7 +258,7 @@ class SpotifyApp {
       const card = document.createElement('div');
       card.className = 'quick-pick-card';
       card.innerHTML = `
-        <img src="${song.cover}" alt="${song.title}" />
+        <img src="${encodeURI(song.cover)}" alt="${song.title}" />
         <span class="quick-pick-title">${song.title}</span>
         <button class="quick-pick-play-btn" title="Play">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="#000000">
@@ -298,7 +302,7 @@ class SpotifyApp {
     card.dataset.songIndex = songIdx;
     card.innerHTML = `
       <div class="card-cover-wrap">
-        <img src="${song.cover}" alt="${song.title}" loading="lazy" />
+        <img src="${encodeURI(song.cover)}" alt="${song.title}" loading="lazy" />
         <button class="floating-play-btn" title="Play">
           <svg viewBox="0 0 24 24" width="22" height="22" fill="#000000">
             <path d="M8 5v14l11-7z"/>
@@ -335,7 +339,7 @@ class SpotifyApp {
           <span class="row-play-icon">▶</span>
         </span>
         <div class="col-title">
-          <img src="${song.cover}" alt="${song.title}" />
+          <img src="${encodeURI(song.cover)}" alt="${song.title}" />
           <div class="col-title-meta">
             <span class="col-title-name">${song.title}</span>
             <span class="col-title-artist">${song.artist}</span>
@@ -425,16 +429,31 @@ class SpotifyApp {
     this.currentIndex = index;
     const song = this.songs[index];
 
-    this.audio.src = song.src;
-    this.playerCover.src = song.cover;
+    // Encode the URI to handle spaces, parentheses, commas, quotes in paths
+    const encodedSrc = encodeURI(song.src);
+    const encodedCover = encodeURI(song.cover);
+
+    // Setting .src automatically begins fetching — do NOT call .load() after
+    this.audio.src = encodedSrc;
+    this.playerCover.src = encodedCover;
     this.playerTitle.textContent = song.title;
     this.playerArtist.textContent = song.artist;
+
+    // Show buffering state on play button
+    if (autoPlay) {
+      this.playBtn.classList.add('buffering');
+      const onCanPlay = () => {
+        this.playBtn.classList.remove('buffering');
+        this.audio.removeEventListener('canplay', onCanPlay);
+      };
+      this.audio.addEventListener('canplay', onCanPlay);
+    }
 
     // Fullscreen elements
     const fsCover = document.getElementById('fullscreen-cover-img');
     const fsTitle = document.getElementById('fullscreen-title');
     const fsArtist = document.getElementById('fullscreen-artist');
-    if (fsCover) fsCover.src = song.cover;
+    if (fsCover) fsCover.src = encodedCover;
     if (fsTitle) fsTitle.textContent = song.title;
     if (fsArtist) fsArtist.textContent = song.artist;
 
@@ -465,10 +484,30 @@ class SpotifyApp {
     this.updateLyricsView(song);
     this.updateQueueView();
 
-    this.audio.load();
+    // Preload next track in background for instant transitions
+    this.preloadNextTrack(index);
 
     if (autoPlay) {
       this.playSong();
+    }
+  }
+
+  // Silently preload the next track so switching is instant
+  preloadNextTrack(currentIndex) {
+    try {
+      const nextIndex = (currentIndex + 1) % this.songs.length;
+      const nextSong = this.songs[nextIndex];
+      if (!nextSong) return;
+
+      // Reuse or create a hidden Audio element for preloading
+      if (!this.nextTrackPreloader) {
+        this.nextTrackPreloader = new Audio();
+        this.nextTrackPreloader.preload = 'auto';
+        this.nextTrackPreloader.volume = 0;
+      }
+      this.nextTrackPreloader.src = encodeURI(nextSong.src);
+    } catch (e) {
+      // Preloading is best-effort, ignore errors
     }
   }
 
@@ -881,7 +920,7 @@ class SpotifyApp {
     const current = this.songs[this.currentIndex];
     nowPlayingBox.innerHTML = `
       <div class="queue-item">
-        <img src="${current.cover}" alt="${current.title}" />
+        <img src="${encodeURI(current.cover)}" alt="${current.title}" />
         <div class="queue-item-info">
           <div class="queue-title">${current.title}</div>
           <div class="queue-artist">${current.artist}</div>
@@ -896,7 +935,7 @@ class SpotifyApp {
       const item = document.createElement('div');
       item.className = 'queue-item';
       item.innerHTML = `
-        <img src="${song.cover}" alt="${song.title}" />
+        <img src="${encodeURI(song.cover)}" alt="${song.title}" />
         <div class="queue-item-info">
           <div class="queue-title">${song.title}</div>
           <div class="queue-artist">${song.artist}</div>
