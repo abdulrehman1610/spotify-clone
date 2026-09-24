@@ -517,6 +517,11 @@ class SpotifyApp {
       this.isPlaying = true;
       this.playIcon.style.display = 'none';
       this.pauseIcon.style.display = 'block';
+      // Sync mobile icons
+      const mPlayIcon = document.querySelector('.mobile-play-icon');
+      const mPauseIcon = document.querySelector('.mobile-pause-icon');
+      if (mPlayIcon) mPlayIcon.style.display = 'none';
+      if (mPauseIcon) mPauseIcon.style.display = 'block';
     }).catch(err => {
       console.warn('Playback error (auto-play policy):', err);
     });
@@ -527,6 +532,11 @@ class SpotifyApp {
     this.isPlaying = false;
     this.playIcon.style.display = 'block';
     this.pauseIcon.style.display = 'none';
+    // Sync mobile icons
+    const mPlayIcon = document.querySelector('.mobile-play-icon');
+    const mPauseIcon = document.querySelector('.mobile-pause-icon');
+    if (mPlayIcon) mPlayIcon.style.display = 'block';
+    if (mPauseIcon) mPauseIcon.style.display = 'none';
   }
 
   togglePlay() {
@@ -1019,6 +1029,11 @@ class SpotifyApp {
     this.nextBtn.addEventListener('click', () => this.nextSong());
     this.shuffleBtn.addEventListener('click', () => this.toggleShuffle());
     this.repeatBtn.addEventListener('click', () => this.toggleRepeat());
+
+    // Mobile playback controls
+    document.getElementById('mobile-play-btn')?.addEventListener('click', () => this.togglePlay());
+    document.getElementById('mobile-prev-btn')?.addEventListener('click', () => this.prevSong());
+    document.getElementById('mobile-next-btn')?.addEventListener('click', () => this.nextSong());
 
     // Like current song
     this.playerHeartBtn.addEventListener('click', () => {
