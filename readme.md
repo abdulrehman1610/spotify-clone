@@ -23,7 +23,11 @@ Never manually hardcode songs again!
    - Simply drop any new folder containing your `.mp3` and `img.jpg` into the `Songs/` directory.
    - Double-click `update_songs.bat` (or run `powershell -File .\update_songs.ps1`).
    - It will automatically crawl the subdirectories, extract metadata, and update `songs.json`. Refresh the browser and your new song is immediately available!
-2. **Option B: In-Browser Directory Import ("Import Folder")**:
+2. **Option B: Automatic Album Cover Extractor (`gen_Art.py` / `gen_Art.bat`)**:
+   - Download songs using `spotdl`.
+   - Run `python gen_Art.py` (or double-click `gen_Art.bat`).
+   - It automatically organizes loose songs into folders, extracts their embedded ID3 album artwork into `img.jpg`, and updates `songs.json`!
+3. **Option C: In-Browser Directory Import ("Import Folder")**:
    - Click the **"Import Folder"** button in the top navigation bar.
    - Select your local `Songs/` folder (or any folder on your machine).
    - The player automatically discovers all audio tracks & album covers and loads them directly into your current session!
