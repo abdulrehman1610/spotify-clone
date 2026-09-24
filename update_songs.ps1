@@ -43,6 +43,51 @@ foreach ($dir in $subdirs) {
     }
 
     $imageFile = Get-ChildItem -Path $dir.FullName -File | Where-Object { $_.Extension -match '^\.(jpg|jpeg|png|webp)$' } | Select-Object -First 1
+
+    # Auto-extract embedded cover if missing from MP3
+    if (-not $imageFile -and $audioFile.Extension -eq '.mp3') {
+        try {
+            $fs = [System.IO.File]::OpenRead($audioFile.FullName)
+            $header = New-Object byte[] 10
+            $read = $fs.Read($header, 0, 10)
+            if ($read -ge 10 -and $header[0] -eq 0x49 -and $header[1] -eq 0x44 -and $header[2] -eq 0x33) {
+                $version = $header[3]
+                $tagSize = (($header[6] -band 0x7F) -shl 21) -bor (($header[7] -band 0x7F) -shl 14) -bor (($header[8] -band 0x7F) -shl 7) -bor ($header[9] -band 0x7F)
+                $tagBytes = New-Object byte[] $tagSize
+                $fs.Read($tagBytes, 0, $tagSize) | Out-Null
+                $fs.Close()
+
+                for ($i = 0; $i -lt $tagBytes.Length - 10; $i++) {
+                    if ($tagBytes[$i] -eq 0x41 -and $tagBytes[$i+1] -eq 0x50 -and $tagBytes[$i+2] -eq 0x49 -and $tagBytes[$i+3] -eq 0x43) {
+                        $frameSize = if ($version -eq 4) {
+                            (($tagBytes[$i+4] -band 0x7F) -shl 21) -bor (($tagBytes[$i+5] -band 0x7F) -shl 14) -bor (($tagBytes[$i+6] -band 0x7F) -shl 7) -bor ($tagBytes[$i+7] -band 0x7F)
+                        } else {
+                            ([int]$tagBytes[$i+4] -shl 24) -bor ([int]$tagBytes[$i+5] -shl 16) -bor ([int]$tagBytes[$i+6] -shl 8) -bor [int]$tagBytes[$i+7]
+                        }
+                        $frameStart = $i + 10
+                        $frameEnd = [Math]::Min($frameStart + $frameSize, $tagBytes.Length)
+                        for ($k = $frameStart; $k -lt $frameEnd - 4; $k++) {
+                            if (($tagBytes[$k] -eq 0xFF -and $tagBytes[$k+1] -eq 0xD8 -and $tagBytes[$k+2] -eq 0xFF) -or
+                                ($tagBytes[$k] -eq 0x89 -and $tagBytes[$k+1] -eq 0x50 -and $tagBytes[$k+2] -eq 0x4E -and $tagBytes[$k+3] -eq 0x47)) {
+                                $imgLen = $frameEnd - $k
+                                $imgBytes = New-Object byte[] $imgLen
+                                [System.Array]::Copy($tagBytes, $k, $imgBytes, 0, $imgLen)
+                                $extractedPath = Join-Path $dir.FullName "img.jpg"
+                                [System.IO.File]::WriteAllBytes($extractedPath, $imgBytes)
+                                $imageFile = Get-Item $extractedPath
+                                Write-Host "  -> Auto-extracted album cover for '$($dir.Name)'" -ForegroundColor Cyan
+                                break
+                            }
+                        }
+                        break
+                    }
+                }
+            } else {
+                $fs.Close()
+            }
+        } catch {}
+    }
+
     $coverRel = if ($imageFile) { "Songs/$($dir.Name)/$($imageFile.Name)" } else { "Svg/logo.svg" }
     $audioRel = "Songs/$($dir.Name)/$($audioFile.Name)"
 

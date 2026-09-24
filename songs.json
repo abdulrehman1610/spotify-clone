@@ -5,7 +5,7 @@
         "artist":  "TommyMuzzic",
         "album":  "After Dark x Sweater Weather Single",
         "src":  "Songs/After Dark x Sweater Weather/TommyMuzzic - After Dark x Sweater Weather - slowed to perfection.mp3",
-        "cover":  "Svg/logo.svg",
+        "cover":  "Songs/After Dark x Sweater Weather/img.jpg",
         "duration":  "3:30",
         "vibe":  "Chill Vibe",
         "tags":  [
@@ -25,7 +25,7 @@
         "artist":  "The Weeknd",
         "album":  "After Hours Single",
         "src":  "Songs/After Hours/The Weeknd - After Hours.mp3",
-        "cover":  "Svg/logo.svg",
+        "cover":  "Songs/After Hours/img.jpg",
         "duration":  "3:30",
         "vibe":  "Chill Vibe",
         "tags":  [
@@ -45,7 +45,7 @@
         "artist":  "Kendrick Lamar, SZA",
         "album":  "All The Stars Single",
         "src":  "Songs/All The Stars/Kendrick Lamar, SZA - All The Stars (with SZA) - From \u0027Black Panther- The Album\u0027.mp3",
-        "cover":  "Svg/logo.svg",
+        "cover":  "Songs/All The Stars/img.jpg",
         "duration":  "3:30",
         "vibe":  "Chill Vibe",
         "tags":  [
@@ -65,7 +65,7 @@
         "artist":  "Sami Khan, Zain Zohaib, Iqra Manzoor, Nusrat Fateh Ali Khan",
         "album":  "BIBA SADA Single",
         "src":  "Songs/BIBA SADA/Sami Khan, Zain Zohaib, Iqra Manzoor, Nusrat Fateh Ali Khan - BIBA SADA - From \u0027Abdullahpur Ka Devdas\u0027.mp3",
-        "cover":  "Svg/logo.svg",
+        "cover":  "Songs/BIBA SADA/img.jpg",
         "duration":  "3:30",
         "vibe":  "Chill Vibe",
         "tags":  [
@@ -133,7 +133,7 @@
         "artist":  "Benlon, Pop Mage",
         "album":  "Dusk Till Dawn Single",
         "src":  "Songs/Dusk Till Dawn/Benlon, Pop Mage - Dusk Till Dawn.mp3",
-        "cover":  "Svg/logo.svg",
+        "cover":  "Songs/Dusk Till Dawn/img.jpg",
         "duration":  "3:30",
         "vibe":  "Chill Vibe",
         "tags":  [
@@ -197,7 +197,7 @@
         "artist":  "The Weeknd, Gesaffelstein",
         "album":  "I Was Never There Single",
         "src":  "Songs/I Was Never There/The Weeknd, Gesaffelstein - I Was Never There.mp3",
-        "cover":  "Svg/logo.svg",
+        "cover":  "Songs/I Was Never There/img.jpg",
         "duration":  "3:30",
         "vibe":  "Chill Vibe",
         "tags":  [
@@ -217,7 +217,7 @@
         "artist":  "Azaan Sami Khan",
         "album":  "Ik Lamha Single",
         "src":  "Songs/Ik Lamha/Azaan Sami Khan - Ik Lamha.mp3",
-        "cover":  "Svg/logo.svg",
+        "cover":  "Songs/Ik Lamha/img.jpg",
         "duration":  "3:30",
         "vibe":  "Chill Vibe",
         "tags":  [
@@ -237,7 +237,7 @@
         "artist":  "Hannah Gracelynn, lost., Pop Mage",
         "album":  "Infinity Single",
         "src":  "Songs/Infinity/Hannah Gracelynn, lost., Pop Mage - Infinity.mp3",
-        "cover":  "Svg/logo.svg",
+        "cover":  "Songs/Infinity/img.jpg",
         "duration":  "3:30",
         "vibe":  "Chill Vibe",
         "tags":  [
@@ -257,7 +257,7 @@
         "artist":  "Talwiinder, Vision",
         "album":  "Nasha Single",
         "src":  "Songs/Nasha/Talwiinder, Vision - Nasha.mp3",
-        "cover":  "Svg/logo.svg",
+        "cover":  "Songs/Nasha/img.jpg",
         "duration":  "3:30",
         "vibe":  "Chill Vibe",
         "tags":  [
@@ -381,7 +381,7 @@
         "artist":  "The Weeknd",
         "album":  "Reminder Single",
         "src":  "Songs/Reminder/The Weeknd - Reminder.mp3",
-        "cover":  "Svg/logo.svg",
+        "cover":  "Songs/Reminder/img.jpg",
         "duration":  "3:30",
         "vibe":  "Chill Vibe",
         "tags":  [
@@ -401,7 +401,7 @@
         "artist":  "lost., Pop Mage",
         "album":  "Senorita Single",
         "src":  "Songs/Senorita/lost., Pop Mage - Senorita.mp3",
-        "cover":  "Svg/logo.svg",
+        "cover":  "Songs/Senorita/img.jpg",
         "duration":  "3:30",
         "vibe":  "Chill Vibe",
         "tags":  [
@@ -421,7 +421,7 @@
         "artist":  "lost., Veronica Bravo, Pop Mage",
         "album":  "Stereo Love Single",
         "src":  "Songs/Stereo Love/lost., Veronica Bravo, Pop Mage - Stereo Love.mp3",
-        "cover":  "Svg/logo.svg",
+        "cover":  "Songs/Stereo Love/img.jpg",
         "duration":  "3:30",
         "vibe":  "Chill Vibe",
         "tags":  [
@@ -441,7 +441,7 @@
         "artist":  "AP Dhillon, Shinda Kahlon",
         "album":  "STFU Single",
         "src":  "Songs/STFU/AP Dhillon, Shinda Kahlon - STFU.mp3",
-        "cover":  "Svg/logo.svg",
+        "cover":  "Songs/STFU/img.jpg",
         "duration":  "3:30",
         "vibe":  "Chill Vibe",
         "tags":  [
@@ -461,7 +461,7 @@
         "artist":  "Pop Mage, Sup I\u0027m Bianca, Mandrazo",
         "album":  "Unstoppable Single",
         "src":  "Songs/Unstoppable/Pop Mage, Sup I\u0027m Bianca, Mandrazo - Unstoppable.mp3",
-        "cover":  "Svg/logo.svg",
+        "cover":  "Songs/Unstoppable/img.jpg",
         "duration":  "3:30",
         "vibe":  "Chill Vibe",
         "tags":  [
@@ -481,7 +481,7 @@
         "artist":  "Honeyfox, lost., Pop Mage",
         "album":  "Acoustic Single",
         "src":  "Songs/Unstoppable - Acoustic/Honeyfox, lost., Pop Mage - Unstoppable - Acoustic.mp3",
-        "cover":  "Svg/logo.svg",
+        "cover":  "Songs/Unstoppable - Acoustic/img.jpg",
         "duration":  "3:30",
         "vibe":  "Chill Vibe",
         "tags":  [
@@ -549,7 +549,7 @@
         "artist":  "Benlon, Pop Mage",
         "album":  "We Don\u0027t Talk Anymore Single",
         "src":  "Songs/We Don\u0027t Talk Anymore/Benlon, Pop Mage - We Don\u0027t Talk Anymore.mp3",
-        "cover":  "Svg/logo.svg",
+        "cover":  "Songs/We Don\u0027t Talk Anymore/img.jpg",
         "duration":  "3:30",
         "vibe":  "Chill Vibe",
         "tags":  [
